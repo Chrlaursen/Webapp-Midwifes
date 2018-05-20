@@ -1,0 +1,65 @@
+
+
+<form [formGroup]="userForm"  *ngIf="newUser"  (ngSubmit)="login()">
+
+  <h1>Login</h1>
+  <label for="email">Email</label>
+  <input type="email" id="email" class="form-control"
+         formControlName="email" required >
+
+  <div *ngIf="formErrors.email" class="help is-danger">
+    {{ formErrors.email }}
+  </div>
+
+  <label for="password">Password</label>
+  <input type="password" id="password" class="form-control"
+         formControlName="password" required >
+
+  <div *ngIf="formErrors.password" class="help is-danger">
+    {{ formErrors.password }}
+  </div>
+  <hr>
+  <label>
+    <input type="checkbox" value="remember-me"> Remember me
+  </label>
+  <hr>
+  <button type="submit" class="btn btn-sm btn-primary btn-block" (onclick)="!userForm.valid">Login</button>
+
+  <span *ngIf="userForm.valid" class="help is-success">Form Looks Valid</span>
+
+  
+  <hr>
+  <p (click)="toggleForm()">New User?</p>
+  <hr>
+
+</form>
+
+
+<form [formGroup]="userForm"  *ngIf="!newUser"  (ngSubmit)="signup()">
+
+  <h1 class="text-align-middle">Registrer</h1>
+  <label for="email">Email</label>
+  <input type="email" id="email" class="form-control"
+         formControlName="email" required >
+
+  <div *ngIf="formErrors.email" class="notification is-danger">
+    {{ formErrors.email }}
+  </div>
+
+  <label for="password">Password</label>
+  <input type="password" id="password" class="form-control"
+         formControlName="password" required >
+
+  <div *ngIf="formErrors.password" class="notification is-danger">
+    {{ formErrors.password }}
+  </div>
+  <hr>
+  <div *ngIf="userForm.valid" class="notification is-success">Form is valid</div>
+  <button type="submit" class="btn btn-sm btn-primary btn-block" (onclick)="!userForm.valid" >Registrer</button>
+
+  <hr>
+  <p  (click)="toggleForm()">Already Registered?</p>
+  <hr>
+
+
+</form>

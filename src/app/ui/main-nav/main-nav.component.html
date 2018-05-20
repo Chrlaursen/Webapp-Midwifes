@@ -1,0 +1,43 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" (click)="toggleCollapse()" [ngClass]="{'is-active': show}">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div class="navbar-menu" [ngClass]="{'is-active': show}">
+    <div class="navbar-end"  >
+      <a class="navbar-item" routerLink="/erfaring">
+        Erfaring
+      </a>
+      <a class="navbar-item" routerLink="/overblik">
+        Overblik
+      </a>
+      <a class="navbar-item" routerLink="/eksporter">
+        Eksporter
+      </a>
+      <a class="navbar-item" routerLink="/semester">
+        Semester
+      </a>
+     
+      <a class="navbar-item" *ngIf="auth.user | async as user" (click)="logout()" routerLink="/login">
+        Log ud
+    </a>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
