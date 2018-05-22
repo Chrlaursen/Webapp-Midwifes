@@ -2,8 +2,9 @@
 
 
 @import url('https://fonts.googleapis.com/css?family=Palanquin|Source+Sans+Pro');
-@import 'bulma/css/bulma.css';
-@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 // Colors
 
 $white:  #fff !default;
@@ -60,6 +61,10 @@ a {
       // min-height: 70vh;
       padding: 2vw;
       flex: 1
+  }
+
+  .text-align-middle {
+    text-align: center;
   }
   
   .videoWrapper {
@@ -179,3 +184,4 @@ app-root:empty + .loading {
 
 
   
+body { margin: 0; }

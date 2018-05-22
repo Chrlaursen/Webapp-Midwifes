@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,8 +9,8 @@ import { environment } from '../environments/environment';
 
 // Firestarter App Modules
 import { CoreModule } from './core/core.module';
-
 import { UiModule } from './ui/ui.module';
+
 
 
 // AngularFire2 Modules
@@ -19,11 +20,9 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireFunctionsModule } from 'angularfire2/functions';
 
-// See README for Firebase setup instructions
-// 1. Delete Me!
 
-// 2. Add your project credentials to environments/environment.ts
-// 3. Then use it in the imports section below environment.firebase
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
 
 
 @NgModule({
@@ -35,13 +34,16 @@ import { AngularFireFunctionsModule } from 'angularfire2/functions';
     AppRoutingModule,
     CoreModule,
     UiModule,
-    AngularFireModule.initializeApp(environment.firebase, 'firestarter'),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFireFunctionsModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    BrowserAnimationsModule,
+    MaterialModule
   ],
-  bootstrap: [AppComponent]
+
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

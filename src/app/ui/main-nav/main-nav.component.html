@@ -1,33 +1,23 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" (click)="toggleCollapse()" [ngClass]="{'is-active': show}">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
+    <mat-toolbar color="primary" class="example-toolbar">
+      <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+      <h1 class="example-app-name">Responsive App</h1>
+    </mat-toolbar>
+  
+    <mat-sidenav-container class="example-sidenav-container"
+                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+        <mat-nav-list>
+          <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
+        </mat-nav-list>
+      </mat-sidenav>
+  
+      <mat-sidenav-content>
+        <p *ngFor="let content of fillerContent">{{content}}</p>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
   </div>
-
-  <div class="navbar-menu" [ngClass]="{'is-active': show}">
-    <div class="navbar-end"  >
-      <a class="navbar-item" routerLink="/erfaring">
-        Erfaring
-      </a>
-      <a class="navbar-item" routerLink="/overblik">
-        Overblik
-      </a>
-      <a class="navbar-item" routerLink="/eksporter">
-        Eksporter
-      </a>
-      <a class="navbar-item" routerLink="/semester">
-        Semester
-      </a>
-     
-      <a class="navbar-item" *ngIf="auth.user | async as user" (click)="logout()" routerLink="/login">
-        Log ud
-    </a>
-    </div>
-  </div>
-</nav>
 
 
 

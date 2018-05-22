@@ -16,7 +16,7 @@ interface User {
   uid: string;
   email?: string | null;
   photoURL?: string;
-  displayName?: string;
+  
 }
 
 @Injectable()
@@ -113,7 +113,6 @@ export class AuthService {
     const data: User = {
       uid: user.uid,
       email: user.email || null,
-      displayName: user.displayName || 'nameless user',
       photoURL: user.photoURL || 'https://goo.gl/Fz9nrQ'
     };
     return userRef.set(data);
