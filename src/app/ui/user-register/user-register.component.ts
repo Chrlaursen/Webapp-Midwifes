@@ -1,7 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import {FormControl, FormGroupDirective, NgForm} from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
 import { AuthService } from '../../core/auth.service';
+
+/** Error when invalid control is dirty, touched, or submitted. */
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 type UserFields = 'email' | 'password';
 type FormErrors = { [u in UserFields]: string };
@@ -12,10 +21,15 @@ type FormErrors = { [u in UserFields]: string };
   styleUrls: ['./user-register.component.scss'],
 })
 export class UserRegisterComponent implements OnInit {
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
 
+  matcher = new MyErrorStateMatcher();
+  
   userForm: FormGroup;
   newUser = true; // to toggle login or signup form
-  passReset = false; // set to true when password reset is triggered
   formErrors: FormErrors = {
     'email': '',
     'password': '',
@@ -51,11 +65,7 @@ export class UserRegisterComponent implements OnInit {
     this.auth.emailLogin(this.userForm.value['email'], this.userForm.value['password']);
   }
 
-  resetPassword() {
-    this.auth.resetPassword(this.userForm.value['email'])
-      .then(() => this.passReset = true);
-  }
-
+ 
   buildForm() {
     this.userForm = this.fb.group({
       'email': ['', [

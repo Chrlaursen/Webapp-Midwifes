@@ -15,7 +15,7 @@ import { switchMap } from 'rxjs/operators';
 interface User {
   uid: string;
   email?: string | null;
-  photoURL?: string;
+ 
   
 }
 
@@ -113,7 +113,7 @@ export class AuthService {
     const data: User = {
       uid: user.uid,
       email: user.email || null,
-      photoURL: user.photoURL || 'https://goo.gl/Fz9nrQ'
+   
     };
     return userRef.set(data);
   }
