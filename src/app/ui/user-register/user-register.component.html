@@ -24,7 +24,7 @@
     <input type="checkbox" value="remember-me"> Remember me
   </label>
   <hr>
-  <button type="submit" class="btn btn-sm btn-primary btn-block" (onclick)="!userForm.valid">Login</button>
+  <button type="submit" mat-raised-button color="primary" (onclick)="!userForm.valid">Login</button>
 
   <span *ngIf="userForm.valid" class="help is-success">Form Looks Valid</span>
 
@@ -56,7 +56,7 @@
   </div>
   <hr>
   <div *ngIf="userForm.valid" class="notification is-success">Form is valid</div>
-  <button type="submit" class="btn btn-sm btn-primary btn-block" (onclick)="!userForm.valid" >Registrer</button>
+  <button type="submit" mat-raised-button color="primary" (onclick)="!userForm.valid" >Registrer</button>
 
   <hr>
   <p  (click)="toggleForm()">Already Registered?</p>

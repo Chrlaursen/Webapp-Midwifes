@@ -13,7 +13,7 @@ import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 interface User {
-  uid: string;
+  userid: string;
   email?: string | null;
  
   
@@ -40,6 +40,8 @@ export class AuthService {
     );
   }
 
+  
+
   ////// OAuth Methods /////
 
   googleLogin() {
@@ -52,7 +54,7 @@ export class AuthService {
     return this.afAuth.auth
       .signInWithPopup(provider)
       .then(credential => {
-        this.notify.update('Welcome to Firestarter!!!', 'success');
+        this.notify.update('Velkommen', 'success');
         return this.updateUserData(credential.user);
       })
       .catch(error => this.handleError(error));
@@ -66,7 +68,7 @@ export class AuthService {
     return this.afAuth.auth
       .createUserWithEmailAndPassword(email, password)
       .then(credential => {
-        this.notify.update('Welcome to Firestarter!!!', 'success');
+        this.notify.update('Velkommen', 'success');
         return this.updateUserData(credential.user); // if using firestore
       })
       .catch(error => this.handleError(error));
@@ -76,21 +78,13 @@ export class AuthService {
     return this.afAuth.auth
       .signInWithEmailAndPassword(email, password)
       .then(credential => {
-        this.notify.update('Welcome to Firestarter!!!', 'success');
+        this.notify.update('Velkommen', 'success');
         return this.updateUserData(credential.user);
       })
       .catch(error => this.handleError(error));
   }
 
-  // Sends email allowing user to reset password
-  resetPassword(email: string) {
-    const fbAuth = firebase.auth();
-
-    return fbAuth
-      .sendPasswordResetEmail(email)
-      .then(() => this.notify.update('Password update email sent', 'info'))
-      .catch(error => this.handleError(error));
-  }
+ 
 
   signOut() {
     this.afAuth.auth.signOut().then(() => {
@@ -107,11 +101,11 @@ export class AuthService {
   // Sets user data to firestore after succesful login
   private updateUserData(user: User) {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(
-      `users/${user.uid}`
+      `users/${user.userid}`
     );
 
     const data: User = {
-      uid: user.uid,
+      userid: user.userid,
       email: user.email || null,
    
     };

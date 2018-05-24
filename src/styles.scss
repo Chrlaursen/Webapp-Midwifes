@@ -189,4 +189,13 @@ app-root:empty + .loading {
 
 
   
-body { margin: 0; }
+body, html { margin: 0; 
+
+}
+.sidenav-container {
+  height: 100vh;
+}
+.sidenav {
+  width: 250px !important; 
+}
+

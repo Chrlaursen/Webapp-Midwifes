@@ -3,7 +3,7 @@
 <div *ngIf="!(auth.user | async); else alreadyLoggedIn">
   <user-register></user-register>
 
-    <button (click)="signInWithGoogle()" class="button btn-social btn-google">
+    <button (click)="signInWithGoogle()" mat-raised-button>
       <i class="fa fa-google fa-lg"></i> Connect Google
     </button>
 

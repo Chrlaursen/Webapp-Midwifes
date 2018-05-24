@@ -10,7 +10,7 @@ import { environment } from '../environments/environment';
 // Firestarter App Modules
 import { CoreModule } from './core/core.module';
 import { UiModule } from './ui/ui.module';
-
+import { SemesterModule } from './ui/registrering/shared/semester.module';
 
 
 // AngularFire2 Modules
@@ -34,6 +34,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CoreModule,
     UiModule,
     FlexLayoutModule,
+    SemesterModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,

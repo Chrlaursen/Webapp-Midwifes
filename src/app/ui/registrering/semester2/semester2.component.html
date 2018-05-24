@@ -1,0 +1,29 @@
+<h1>2. semester</h1>
+<h3 class="text-align-middle">Obligatorisk læringsmål.</h3>
+
+<hr>
+<div *ngFor="let experience of experiences | async">
+
+ 
+  <mat-accordion>
+     
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+             <b>{{ experience.title }}</b> 
+          </mat-panel-title>
+      
+        </mat-expansion-panel-header>
+       
+        <p> {{ experience.kategori }} </p>
+        <p> {{ experience.description }} </p>
+        <mat-action-row>
+            <button mat-button>Tilføj</button>
+          </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+  
+</div>
+
+

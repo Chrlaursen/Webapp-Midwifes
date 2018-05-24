@@ -22,6 +22,10 @@ import { EksporterComponent } from './eksporter/eksporter.component';
 import { SemesterComponent } from './semester/semester.component';
 import { MainNavComponent }  from './main-nav/main-nav.component';
 
+import { Semester2Component } from './registrering/semester2/semester2.component';
+import { Semester3Component } from './registrering/semester3/semester3.component';
+import { Semester4Component } from './registrering/semester4/semester4.component';
+
 @NgModule({
   imports: [
     CommonModule, 
@@ -40,7 +44,11 @@ import { MainNavComponent }  from './main-nav/main-nav.component';
     OverblikComponent,
     EksporterComponent,
     SemesterComponent,
-    MainNavComponent
+    MainNavComponent,
+
+    Semester2Component,
+    Semester3Component,
+    Semester4Component
     
   ],
   exports: [
@@ -52,7 +60,9 @@ import { MainNavComponent }  from './main-nav/main-nav.component';
     OverblikComponent,
     EksporterComponent,
     SemesterComponent,
-    MainNavComponent
+    MainNavComponent,
+ 
+    Semester2Component,
   ],
  
   

@@ -1,0 +1,25 @@
+.button-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 10px;
+  }
+
+  .mat-raised-button {
+      min-width: 300px;
+  }
+
+
+h5 {
+    padding-top: 40px;
+}
+
+.material-icons {
+    float: right;
+    padding-top: 5px;
+    padding-right: 0px;
+}
+
+.span-text {
+    float: left;
+}

@@ -10,12 +10,15 @@ import { HomePageComponent } from './ui/home-page/home-page.component';
 import { UserRegisterComponent } from './ui/user-register/user-register.component';
 import { UserProfileComponent } from './ui/user-profile/user-profile.component';
 
+import { Semester2Component } from './ui/registrering/semester2/semester2.component';
 
 const routes: Routes = [
   
   { path: '', component: HomePageComponent, canActivate: [AuthGuard] },
   { path: 'login', component: UserLoginComponent },
   { path: 'erfaring', component: ErfaringComponent, canActivate: [AuthGuard] },
+
+  { path: 'semester2', component: Semester2Component, canActivate: [AuthGuard]},
   { path: 'overblik', component: OverblikComponent, canActivate: [AuthGuard] },
   { path: 'eksporter', component: EksporterComponent, canActivate: [AuthGuard] },
   { path: 'register', component: UserRegisterComponent },
